@@ -1,0 +1,84 @@
+/* Mama sagt… | Kaffee — оформление по исходному макету Figma */
+:root {
+  --lavender: #D0A9FF; /* точный цвет фона из загруженного изображения */
+  --ink: #000;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--lavender); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--lavender);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.menu {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 31px 3.65% 48px;
+}
+h1 {
+  margin: 0 0 61px;
+  text-align: center;
+  font-family: Arial Black, Arial, Helvetica, sans-serif;
+  font-size: clamp(44px, 7.1vw, 77px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 40px;
+}
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+.drink {
+  font-size: clamp(23px, 3.55vw, 39px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.043em;
+}
+.drink small {
+  font-size: .60em;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+.price {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: clamp(28px, 4.25vw, 47px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+.currency { font-weight: 300; letter-spacing: 0; }
+
+/* Узкий экран: читаемые строки и цены, без горизонтального скролла */
+@media (max-width: 680px) {
+  .menu { padding: 28px 18px 44px; }
+  h1 { margin-bottom: 43px; font-size: clamp(42px, 11vw, 62px); }
+  .menu-list { gap: 27px; }
+  .menu-item { align-items: baseline; gap: 10px; }
+  .drink { font-size: clamp(19px, 5.3vw, 29px); overflow-wrap: break-word; }
+  .drink small { font-size: .62em; }
+  .price { font-size: clamp(24px, 6.5vw, 34px); }
+}
+@media (max-width: 390px) {
+  .menu { padding-inline: 14px; }
+  .drink { font-size: 18px; }
+  .drink small { font-size: .58em; }
+  .price { font-size: 23px; }
+  .menu-list { gap: 25px; }
+}
